@@ -77,3 +77,118 @@ Read about dif bundlers: vite, webpack, parcel
             incrementing the major version. ^2.3.4 will use releases from 2.3.4 to <3.0.0.
 
 ● Read about Script types in html (MDN Docs)
+
+command to initialize the npm ==> npm init
+what it creates ==> package.json
+package.json ==> used to manage the dependencies ! 
+                Two Types of Dependencies ==> devDependencies, dependencies 
+                devDependencies ==> used only for development Environment
+                dependencies ==> used in all the development Environment and Production also 
+                browserList ==> help us to convert our code into different browser version 
+                                in older versions doesnt have the defination of some code then 
+                                    that functionality might not run so browserlist will add the defination by using the pollyfill.
+pollyfill ==> our modern js code convert into older code that is what pollyfill is
+ES6 => ecma script 6
+do we need to write the pollyfill ==> no Babel write it for ourself.
+so what is babel => js package
+
+super Powers of Parcel --> optimizing the js code and images 
+                           budling and minifying 
+                           hot module replacement ==> reload the page it self 
+                           file watcher ==> to watch the files which are being changed 
+                           caching 
+                           comperession 
+                           HTTPS on dev
+                           port no
+                           consistant hashing algorithm 
+                           Zero Config 
+                           
+Tree shaking ==> removing unwanted code 
+             => we have added some library or frame work it has multiple functions but we are using one or two of them so parcel removes the code which is not being used.
+
+how can you build a performant scalable app ==> we need to explain why my app is faster and this parcel functionality is same as this one. so we will say those functionalities.
+
+
+command use to run this project ==> npx parcel index.html
+
+npx ==> executing the package or library without downloading it. ==> npx == npm run 
+
+now we have added the commands in script tag we can use it as 
+    npm run start
+    npm run build
+
+we can ignore the run and directly write the  npm start ==> work only for start script only 
+
+<!--  parcel don;t remove the console.log  -->
+we need to add the configuration for removing the console.log 
+which is babel plugin transform runtime remove console 
+    ===> babel-plugin-transform-remove-console
+
+for dev dependency we can use --> npm install babel-plugin-transform-remove-console --save-dev
+    we can use -d also 
+
+just installing it wont work ! so we need to configure it with our project ==> 
+    .babelrc ==> configuration for babel ==> this is the babel library 
+
+we need to create .babelrc ==> configuration for babel ==> go to documentation and add the config into that
+
+every time creating a new bundle remove the dist folder it is good thing.
+
+
+suppose if we have div and has two childrens h1 and h2 ==> so we need to give then unique keys 
+in react we need to give keys in props object 
+
+if we have an array as a children we need to give the keys to those children
+
+<!-- Todo :- why we need to give the keys ==> read about reconciliation ==> diffing algorithm -->
+<!-- suppose we have ul and has two li -->
+
+<ul>
+    <li>1</li>
+    <li>2</li>
+</ul>
+
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+</ul>
+<!-- if we add it in the end it will be okay for react it will add and react will render it and update it  -->
+<ul>
+    <li>3</li>
+    <li>1</li>
+    <li>2</li>
+</ul>
+
+<!-- if we add it in the top there will be so much process needed for react to update this he need to rerender whole dom tree  -->
+
+something updating in DOM -> render
+
+so to stop this re rendering then we need to add the unique key so react can identify the unique key and manage the difference and update the DOM.
+
+
+
+ <!-- TODO : what is difference between JSX and HTML ?   -->
+ <!-- TODO : usage of JSX, multiple tags inside JSX, create img tag in jsx  -->
+ <!-- TODO : Babel does more things we need to check into babel.com  -->
+
+
+
+
+ advantages of JSX ==>
+    readablity 
+    developer experience
+    syntactical sugar 
+    less code 
+    mantainablity 
+    no repeatation 
+
+
+React Component ==> 
+    - functional Component - NEW
+    - Class Based Component - OLD 
+
+functional component is nothing but a function A simple JS Function 
+
+Name of component start with Capital Letter => Not mandatory ==> but normal convection ==> good practise
+
