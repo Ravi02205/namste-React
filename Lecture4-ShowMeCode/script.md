@@ -55,3 +55,8 @@ what is the props ?
 
 what is config driven UI ?
 ==> It is a very common & basic approach to interact with the User. A typical login form, common in most of the Apps. Most of these forms also get frequent updates as the requirements increase in terms of Form Validations, dropdown options,.. or design changes.
+
+reconcilation :
+The virtual DOM (VDOM) is a programming concept where an ideal, or “virtual”, representation of a UI is kept in memory and synced with the “real” DOM by a library such as ReactDOM. This process is called reconciliation.
+
+ normally variables “disappear” when the function exits but state variables are preserved by React.
