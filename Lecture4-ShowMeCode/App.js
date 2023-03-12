@@ -7,6 +7,7 @@ import About from './src/About';
 import Error from './src/Error';
 import Contact from './src/Contact';
 import Login from './src/Login';
+import Profile from './src/Profile';
 import RestaurantInfo from './src/RestaurantInfo';
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
 import Restaurant from './src/Restaurant';
@@ -32,7 +33,13 @@ let routes = createBrowserRouter([
             },
             {
                 path: '/about',
-                element: <About />
+                element: <About />,
+                children: [
+                    {
+                        path: 'profile', // dont use / becuase the path is parentpath/{path} ==> /about/profile
+                        element: <Profile /> // will be added in outlet==> which is written in the parent component
+                    }
+                ]
             },
             {
                 path: '/contact',
