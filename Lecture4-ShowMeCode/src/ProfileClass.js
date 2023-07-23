@@ -32,7 +32,7 @@ class Profile extends React.Component {
     }
 
     componentDidUpdate() {
-        console.log(this.props.name + "child DIDupdate")
+        console.log(this.prqops.name + "child DIDupdate")
     }
 
     componentWillUnmount() {

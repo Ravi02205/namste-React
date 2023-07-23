@@ -33,7 +33,7 @@ class About extends React.Component {
             <Profile name="Ravi" />
             <br /> */}
                 <br />
-                <ProfileClass name="first" />
+                <Profile name="first" />
                 <br />
                 {/* <ProfileClass name="second" />
                 <br /> */}

@@ -1,23 +1,41 @@
-import React from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import Body from './src/Body';
 import Footer from './src/Footer';
 import Header from './src/Header';
-import About from './src/About';
 import Error from './src/Error';
-import Contact from './src/Contact';
-import Login from './src/Login';
 import Profile from './src/Profile';
+import InstaMart from './src/InstaMart';
 import RestaurantInfo from './src/RestaurantInfo';
+import Cart from './src/Cart';
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
-import Restaurant from './src/Restaurant';
+import useIsOnline from './utils/useOnline';
+import userContext from './utils/userContext';
+import { Provider } from 'react-redux'; 
+import store from './utils/store';
+import Counter from './src/Counter';
+
+
+const Login = lazy(() => import('./src/Login'));
+const About = lazy(() => import('./src/About'));
+const Contact = lazy(() => import('./src/Contact'));
+
 let App = () => {
+
+    const [userData, setUserData] = useState({ name: "Ravi", email: "pravi7031@gmail.com" });
+    const [onLine, visible] = useIsOnline(false);
     return (
-        <React.Fragment>
-            <Header />
-            <Outlet />
-            <Footer />
-        </React.Fragment>
+        // <React.Fragment>
+        //     <Provider store={store}>
+        //     <userContext.Provider value={{userData,setUserData}}>
+        //         <Header />
+        //         <Outlet />
+        //         <Footer />
+        //         {onLine ? <h1 className={`status online-status ${visible ? "visible" : "invisible"}`}>Online</h1> : <h1 className='status offline-status'>Offline</h1>}
+        //     </userContext.Provider>
+        //     </Provider>
+        // </React.Fragment>
+        <Counter/>
     );
 }
 
@@ -33,7 +51,7 @@ let routes = createBrowserRouter([
             },
             {
                 path: '/about',
-                element: <About />,
+                element: <Suspense><About /></Suspense>,
                 children: [
                     {
                         path: 'profile', // dont use / becuase the path is parentpath/{path} ==> /about/profile
@@ -43,7 +61,7 @@ let routes = createBrowserRouter([
             },
             {
                 path: '/contact',
-                element: <Contact />
+                element: <Suspense><Contact /></Suspense>
             },
             {
                 path: '/restaurant/:resId',
@@ -51,7 +69,15 @@ let routes = createBrowserRouter([
             },
             {
                 path: '/login',
-                element: <Login />
+                element: <Suspense><Login /></Suspense>
+            },
+            {
+                path: '/instamart',
+                element: <InstaMart />
+            },
+            {
+                path:'/cart',
+                element:<Cart />
             }
         ]
     },
